@@ -1,0 +1,58 @@
+{
+  "id": "4663443",
+  "name": "navigation",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "25200987",
+      "name": "磁力套索",
+      "font_class": "cilitaosuo",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "39570259",
+      "name": "磁力",
+      "font_class": "cili",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "1001",
+      "name": "女人",
+      "font_class": "nvren",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "10289688",
+      "name": "谷歌",
+      "font_class": "guge",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "10806564",
+      "name": "baidu",
+      "font_class": "Group",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "27757833",
+      "name": "必应",
+      "font_class": "biying",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "4766961",
+      "name": "api",
+      "font_class": "api",
+      "unicode": "e7e1",
+      "unicode_decimal": 59361
+    }
+  ]
+}
