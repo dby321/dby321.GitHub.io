@@ -7,6 +7,32 @@
       </el-col>
       <el-col :span="20">
         <MainSearch style="margin-top: 20px"></MainSearch>
+        <el-tabs v-model="activeName" style="width:25%" type="border-card" @tab-click="handleClick">
+          <el-tab-pane label="百度" name="baidu">
+            <div v-for="(item,index) in baiduNews.slice(0,10)" :key="index"
+                >
+              <el-link :href="item.link" :type="index%2==0?'primary':'success'" target="_blank" >
+                {{ item.index }}.{{ item.title}} 🔥{{ item.hotValue }}
+              </el-link>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="知乎" name="zhihu">
+            <div v-for="(item,index) in zhihuNews.slice(0,10)" :key="index"
+                >
+              <el-link :href="item.link" :type="index%2==0?'primary':'success'" target="_blank">
+                {{ item.index }}.{{ item.title }} 🔥{{ item.hotValue }}
+              </el-link>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="微博" name="weibo">
+            <div v-for="(item,index) in weiboNews.slice(0,10)" :key="index"
+                >
+              <el-link :href="item.link" :type="index%2==0?'primary':'success'" target="_blank">
+                {{ item.index }}.{{ item.title }} 🔥{{ item.hotValue }}
+              </el-link>
+            </div>
+          </el-tab-pane>
+        </el-tabs>
         <el-row :gutter="20" style="margin-top: 20px;">
           <el-col :span="6">
             <el-card body-style="height:400px" class="box-card" style="height: 400px">
@@ -34,43 +60,6 @@
           <el-col :span="6">
             <el-card body-style="height:400px" class="box-card" style="height: 400px">
               <div slot="header" class="clearfix">
-                <span class="title">新闻</span>
-              </div>
-              <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
-                <el-tab-pane label="百度" name="baidu">
-                  <div v-for="(item,index) in baiduNews" :key="index" class="link-box"
-                       style="padding:5px;border-bottom: 1px solid grey">
-                    <el-link :href="item.link" :type="index%2==0?'primary':'success'" target="_blank">
-                      {{ item.index }}.{{ item.title.slice(0,10) }}...
-                    </el-link>
-                    🔥<span>{{ item.hotValue }}</span>
-                  </div>
-                </el-tab-pane>
-                <el-tab-pane label="知乎" name="zhihu">
-                  <div v-for="(item,index) in zhihuNews.slice(0,10)" :key="index" class="link-box"
-                       style="padding:5px;border-bottom: 1px solid grey">
-                    <el-link :href="item.link" :type="index%2==0?'primary':'success'" target="_blank">
-                      {{ item.index }}.{{ item.title.slice(0,10) }}...
-                    </el-link>
-                    🔥<span>{{ item.hotValue }}</span>
-                  </div>
-                </el-tab-pane>
-                <el-tab-pane label="微博" name="weibo">
-                  <div v-for="(item,index) in weiboNews" :key="index" class="link-box"
-                       style="padding:5px;border-bottom: 1px solid grey">
-                    <el-link :href="item.link" :type="index%2==0?'primary':'success'" target="_blank">
-                      {{ item.index }}.{{ item.title.slice(0,10) }}...
-                    </el-link>
-                    🔥<span>{{ item.hotValue }}</span>
-                  </div>
-                </el-tab-pane>
-              </el-tabs>
-
-            </el-card>
-          </el-col>
-          <el-col :span="6">
-            <el-card body-style="height:400px" class="box-card" style="height: 400px">
-              <div slot="header" class="clearfix">
 
                 <span class="title">磁力链接导航</span>
               </div>
@@ -85,13 +74,18 @@
               </span>
             </el-card>
           </el-col>
-          <el-col :span="24">
-            <el-card body-style="height:400px" class="box-card" style="height: 400px">
-              <div class="player-container">
-                <vue-core-video-player cover="https://img1.wxzxzj.com/vpc-example-cover-your-name-c.png" title="这就是你想看的？" :src="videoSource"   autoplay :loop="false"></vue-core-video-player>
-              </div>
-            </el-card>
-          </el-col>
+          <!--<el-col :span="24">-->
+          <!--  <el-card body-style="height:800px" class="box-card" style="height: 800px">-->
+          <!--    <div slot="header" class="clearfix">-->
+          <!--      <el-button @click="clickToGetAnotherXjjVedio" type="primary"  style="width:200px;height:50px">点我真的换一个小姐姐视频</el-button>-->
+          <!--    </div>-->
+          <!--    <div class="player-container" style="display: flex;flex-direction: row">-->
+          <!--       &lt;!&ndash;TODO 播放器控件&ndash;&gt;-->
+          <!--      <div id="player" v-html="xjjData"></div>-->
+          <!--    </div>-->
+          <!--  </el-card>-->
+          <!--</el-col>-->
+
           <el-col :span="24">
             <el-card body-style="height:400px" class="box-card" style="height: 400px">
               <vue-markdown style="text-align: left" :source="markdownText"></vue-markdown>
@@ -115,6 +109,7 @@
         </el-row>
       </el-col>
     </el-row>
+
     <el-card class="uplood-card">
       <div slot="header">
         <span>😀上传你的书签</span>
@@ -143,7 +138,7 @@ export default {
   components: {
     MainSearch,
     LeftMenu,
-    VueMarkdown
+    VueMarkdown,
   },
 
   data() {
@@ -258,9 +253,8 @@ export default {
         }
       ],// 磁力链接网站
       markdownText:"# 测试",
-      videoSource:[{
-        src:"https://alimov2.a.kwimgs.com/upic/2024/01/08/17/BMjAyNDAxMDgxNzI1NTVfMzA2MzM1NjQ0Nl8xMjE2MzExNjgwOTZfMV8z_b_Bf98e91168144f06ae06d8d7e3915c549.mp4?clientCacheKey=3xgqnd9wy77va8g_b.mp4&tt=b&di=78e49c3f&bp=13414",
-      }]
+      xjjVedioData:{},
+      xjjData:"",
     }
   },
   methods: {
@@ -321,7 +315,7 @@ export default {
     async getVueMarkdownNote(){
       // https://github.com/octokit/core.js#readme
       const octokit = new Octokit({
-        auth: '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'
+        auth: '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'
       })
 
       let res =await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
@@ -337,11 +331,11 @@ export default {
       console.log("markdown",markdown)
       this.markdownText=markdown.data
     },
-    async getXjjVideo(){
-      let xjjVedioData=await this.$axios.get("http://api.yujn.cn/api/zzxjj.php?type=video");
-      console.log("xjjVedioData",xjjVedioData)
-      this.videoSource=xjjVedioData.data.video;
-      console.log("videoSource",this.videoSource)
+    async getXjjVideo() {
+      console.log("待完善")
+    },
+    clickToGetAnotherXjjVedio(){
+      this.getXjjVideo();
     }
   },
   mounted() {
@@ -389,7 +383,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  overflow-y:auto;
 }
 
 /deep/ .el-card {
@@ -418,8 +411,5 @@ export default {
   font-size: 24px;
 }
 
-.link-box {
-  float: left;
-}
 
 </style>
