@@ -74,23 +74,12 @@
               </span>
             </el-card>
           </el-col>
-          <!--<el-col :span="24">-->
-          <!--  <el-card body-style="height:800px" class="box-card" style="height: 800px">-->
-          <!--    <div slot="header" class="clearfix">-->
-          <!--      <el-button @click="clickToGetAnotherXjjVedio" type="primary"  style="width:200px;height:50px">点我真的换一个小姐姐视频</el-button>-->
-          <!--    </div>-->
-          <!--    <div class="player-container" style="display: flex;flex-direction: row">-->
-          <!--       &lt;!&ndash;TODO 播放器控件&ndash;&gt;-->
-          <!--      <div id="player" v-html="xjjData"></div>-->
-          <!--    </div>-->
-          <!--  </el-card>-->
-          <!--</el-col>-->
 
-          <el-col :span="24">
-            <el-card body-style="height:400px" class="box-card" style="height: 400px">
-              <vue-markdown style="text-align: left" :source="markdownText"></vue-markdown>
-          </el-card>
-          </el-col>
+          <!--<el-col :span="24">-->
+          <!--  <el-card body-style="height:400px" class="box-card" style="height: 400px">-->
+          <!--    <vue-markdown style="text-align: left" :source="markdownText"></vue-markdown>-->
+          <!--</el-card>-->
+          <!--</el-col>-->
 
           <el-col :span="24">
             <el-card body-style="height:200px" class="box-card" style="height: 200px">
@@ -130,7 +119,7 @@
 import LeftMenu from '@/components/LeftMenu.vue'
 import bookmarkToJson from "@/utils/js/bookmarkToJson";
 import MainSearch from "@/components/MainSearch.vue";
-import VueMarkdown from "vue-markdown";
+// import VueMarkdown from "vue-markdown";
 import { Octokit } from "octokit";
 export default {
   name: 'App',
@@ -138,7 +127,7 @@ export default {
   components: {
     MainSearch,
     LeftMenu,
-    VueMarkdown,
+    // VueMarkdown,
   },
 
   data() {
@@ -312,6 +301,7 @@ export default {
         this.getNews("weibo")
       }
     },
+    // 有时候获取不到笔记
     async getVueMarkdownNote(){
       // https://github.com/octokit/core.js#readme
       const octokit = new Octokit({
@@ -322,30 +312,24 @@ export default {
         owner: 'dby321',
         repo: 'learningNotes',
         path: 'Vue笔记.md',
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
-        }
+
       });
       console.log("github",res)
       let markdown=await this.$axios.get(res.data.download_url)
       console.log("markdown",markdown)
       this.markdownText=markdown.data
     },
-    async getXjjVideo() {
-      console.log("待完善")
-    },
-    clickToGetAnotherXjjVedio(){
-      this.getXjjVideo();
-    }
+
+
   },
   mounted() {
     this.getBeautifulGirlImages();
     this.getWeather();
     this.getNews("baidu");
     this.getBingBackgroundImage();
-    this.getVueMarkdownNote()
-    this.getXjjVideo();
+    // this.getVueMarkdownNote()
   },
+
 }
 </script>
 
