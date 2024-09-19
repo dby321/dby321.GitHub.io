@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <el-input placeholder="请输入内容" v-model="searchText"  @keyup.enter="search" class="input-with-select">
+    <el-input placeholder="请输入搜索内容" v-model="searchText"  @keyup.enter.native="search" class="input-with-select"   >
       <el-select slot="prepend" v-model="searchEngine" placeholder="搜索引擎" >
         <el-option
             v-for="item in options"
@@ -14,9 +14,8 @@
           <span>{{item.label}}</span>
         </el-option>
       </el-select>
-      <el-button slot="append" icon="el-icon-search" type="primary" @click="search" class="search-button">搜索</el-button>
+      <el-button slot="append" icon="el-icon-search" type="primary"  @click="search"  class="search-button">搜索</el-button>
     </el-input>
-
 
   </div>
 </template>
@@ -65,6 +64,11 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.box{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .el-input{
   width: 400px;
 }
@@ -83,7 +87,7 @@ export default {
   width: 2em;
   height: 2em;
 }
-/deep/ .el-input__inner,/deep/{
+/deep/ .el-input__inner{
   background-color: rgba(255, 255, 255, 0.3); /* 半透明背景 */
   backdrop-filter:blur(10px); /* 应用毛玻璃效果 */
   -webkit-backdrop-filter:blur(10px); /* Safari 和 Chrome 的前缀 */

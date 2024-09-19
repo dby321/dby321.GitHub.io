@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import tool from "./utils/js/tool";
 import "@/assets/iconfont/iconfont"
 import "@/assets/iconfont/iconfont.css"
 // 改用normalize
@@ -16,7 +15,6 @@ import 'vue-dplayer/dist/vue-dplayer.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-Vue.use(tool);
 Vue.use(VueDPlayer)
 // 将axios实例绑定到Vue原型上
 Vue.prototype.$axios = axios;
