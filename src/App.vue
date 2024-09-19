@@ -42,6 +42,10 @@ export default {
 
         this.$refs.app.style.background = `url("${res.data.link}") `;
         this.$refs.app.style.backgroundSize="100%";
+      }).catch((err)=>{
+        console.log(err)
+        this.$refs.app.style.background = `url("https://static.jyshare.com/images/mix/rfwDB3L.png") `;
+        this.$refs.app.style.backgroundSize="cover";
       })
     },
     getNowTime(){
