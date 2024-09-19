@@ -35,18 +35,6 @@ export default {
         this.weatherInfo = res.data.lives[0]
       })
     },
-    getBingBackgroundImage() {
-      this.$axios.get(`https://api.paugram.com/bing/?info`).then(res => {
-        console.log("bingImage", res)
-
-        this.$refs.app.style.background = `url("${res.data.link}") `;
-        this.$refs.app.style.backgroundSize="100%";
-      }).catch((err)=>{
-        console.log(err)
-        this.$refs.app.style.background = `url("https://static.jyshare.com/images/mix/rfwDB3L.png") `;
-        this.$refs.app.style.backgroundSize="cover";
-      })
-    },
     getNowTime(){
       let time = new Date();
       setInterval(() => {
@@ -60,7 +48,6 @@ export default {
   },
   mounted() {
     this.getWeather();
-    this.getBingBackgroundImage();
     this.getNowTime();
   },
 
