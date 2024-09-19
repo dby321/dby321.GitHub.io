@@ -1,9 +1,9 @@
 <template>
   <div id="app" ref="app">
-    <div ref="time" style="font-size: 200px;color:white;margin-top: 200px;">
+    <div ref="time" style="font-size: 200px;color:white;margin-top: 100px;">
       <span>{{time}}</span>
     </div>
-    <MainSearch style="margin-top: 100px" >
+    <MainSearch style="margin-top: 20px" >
     </MainSearch>
     <PageList></PageList>
   </div>
@@ -11,10 +11,12 @@
 
 <script>
 import MainSearch from "@/components/MainSearch";
+import PageList from "@/components/PageList";
 export default {
   name: 'App',
   components: {
     MainSearch,
+    PageList
   },
 
   data() {
