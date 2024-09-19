@@ -1,8 +1,6 @@
 <template>
   <div id="app" ref="app">
-    <div ref="time" style="font-size: 200px;color:white">
-      <span>{{time}}</span>
-    </div>
+    <span style="font-size: 200px;color:white">{{time}}</span>
     <MainSearch style="margin-top: 20px" >
     </MainSearch>
 
@@ -24,7 +22,7 @@ export default {
       extensions: "base",
       outputFormat: "JSON",
       weatherInfo: {},
-      time: "",
+      time: new Date().toLocaleTimeString()
     }
   },
   methods: {
