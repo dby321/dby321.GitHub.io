@@ -1,11 +1,11 @@
 <template>
   <div id="app" ref="app">
-    <div ref="time" style="font-size: 200px;color:white">
+    <div ref="time" style="font-size: 200px;color:white;margin-top: 200px;">
       <span>{{time}}</span>
     </div>
-    <MainSearch style="margin-top: 20px" >
+    <MainSearch style="margin-top: 100px" >
     </MainSearch>
-
+    <PageList></PageList>
   </div>
 </template>
 
