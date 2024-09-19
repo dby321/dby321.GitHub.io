@@ -21,7 +21,6 @@ export default {
 
   data() {
     return {
-      beautifulGirlImage: "",
       cityCode: "420100",// 城市编码，默认是武汉
       extensions: "base",
       outputFormat: "JSON",
@@ -78,6 +77,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
+  background: url("https://static.jyshare.com/images/mix/rfwDB3L.png");
 }
 
 .uplood-card {
