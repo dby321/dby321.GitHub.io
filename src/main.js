@@ -8,14 +8,11 @@ import "@/assets/iconfont/iconfont.css"
 // import "@/utils/css/reset.css"
 import 'normalize.css'
 import axios from 'axios'; // 导入上面创建的axios实例
-import VueDPlayer from 'vue-dplayer'
-import 'vue-dplayer/dist/vue-dplayer.css'
 
 
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-Vue.use(VueDPlayer)
 // 将axios实例绑定到Vue原型上
 Vue.prototype.$axios = axios;
 new Vue({

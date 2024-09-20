@@ -1,8 +1,6 @@
 <template>
   <div id="app" ref="app">
-    <div ref="time" style="font-size: 10rem;color:white;margin-top: 10rem;">
-      <span>{{time}}</span>
-    </div>
+    <PageTime></PageTime>
     <MainSearch style="margin-top: 1rem" >
     </MainSearch>
     <PageList></PageList>
@@ -12,43 +10,20 @@
 <script>
 import MainSearch from "@/components/MainSearch";
 import PageList from "@/components/PageList";
+import PageTime from "@/components/PageTime";
+import '@toast-ui/calendar/dist/toastui-calendar.min.css';
 export default {
   name: 'App',
   components: {
     MainSearch,
-    PageList
+    PageList,
+    PageTime,
   },
 
   data() {
     return {
-      cityCode: "420100",// 城市编码，默认是武汉
-      extensions: "base",
-      outputFormat: "JSON",
-      weatherInfo: {},
-      time: "",
-    }
-  },
-  methods: {
-    getWeather() {
-      this.$axios.get(`https://restapi.amap.com/v3/weather/weatherInfo?key=aa27ed324dfe80f2d6b9505fc5d057fb&&city=${this.cityCode}&&extensions=${this.extensions}&&output=${this.outputFormat}`).then(res => {
-        console.log("weatherInfo", res);
-        this.weatherInfo = res.data.lives[0]
-      })
-    },
-    getNowTime(){
-      let time = new Date();
-      setInterval(() => {
-        time = new Date();
-        // ${time.toLocaleDateString()}
-        this.time = ` ${time.toLocaleTimeString()}`;
-      }, 1000)
-    }
 
-
-  },
-  mounted() {
-    this.getWeather();
-    this.getNowTime();
+    }
   },
 
 }
@@ -69,13 +44,6 @@ export default {
 
 }
 
-.uplood-card {
-  width: 200px;
-  height: 200px;
-  position: fixed;
-  left: 0px;
-  bottom: 20px;
-}
 
 .icon {
   width: 1em;
@@ -99,24 +67,24 @@ export default {
   backdrop-filter: blur(10px); /* 应用毛玻璃效果 */
   -webkit-backdrop-filter: blur(10px); /* Safari 和 Chrome 的前缀 */
   border: 0px;
-  margin: 10px 5px 10px 5px;
+  margin: 1rem 0.5rem 1rem 0.5rem;
 }
 
 /deep/ .el-card__header {
   border-bottom: 0px;
-  padding:20px 0 0 20px;
+  padding:2rem 0 0 2rem;
 }
 
 /deep/ .el-submenu__title:focus, .el-submenu__title:hover {
   background-color: rgba(255, 255, 255, 0.3); /* 半透明背景 */
-  backdrop-filter: blur(10px); /* 应用毛玻璃效果 */
+  backdrop-filter: blur(1rem); /* 应用毛玻璃效果 */
   -webkit-backdrop-filter: blur(10px); /* Safari 和 Chrome 的前缀 */
 }
 
 
 .title {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 2rem;
 }
 
 
