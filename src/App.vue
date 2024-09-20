@@ -1,23 +1,26 @@
 <template>
   <div id="app" ref="app">
-    <span style="font-size: 200px;color:white">{{time}}</span>
+    <div ref="time" style="font-size: 200px;color:white">
+      <span>{{time}}</span>
+    </div>
     <MainSearch style="margin-top: 20px" >
     </MainSearch>
-
+    <PageList></PageList>
   </div>
 </template>
 
 <script>
 import MainSearch from "@/components/MainSearch";
+import PageList from "@/components/PageList";
 export default {
   name: 'App',
   components: {
     MainSearch,
+    PageList
   },
 
   data() {
     return {
-      beautifulGirlImage: "",
       cityCode: "420100",// 城市编码，默认是武汉
       extensions: "base",
       outputFormat: "JSON",
@@ -30,14 +33,6 @@ export default {
       this.$axios.get(`https://restapi.amap.com/v3/weather/weatherInfo?key=aa27ed324dfe80f2d6b9505fc5d057fb&&city=${this.cityCode}&&extensions=${this.extensions}&&output=${this.outputFormat}`).then(res => {
         console.log("weatherInfo", res);
         this.weatherInfo = res.data.lives[0]
-      })
-    },
-    getBingBackgroundImage() {
-      this.$axios.get(`https://api.paugram.com/bing/?info`).then(res => {
-        console.log("bingImage", res)
-
-        this.$refs.app.style.background = `url("${res.data.link}") `;
-        this.$refs.app.style.backgroundSize="100%";
       })
     },
     getNowTime(){
@@ -53,7 +48,6 @@ export default {
   },
   mounted() {
     this.getWeather();
-    this.getBingBackgroundImage();
     this.getNowTime();
   },
 
@@ -70,6 +64,9 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
+  background: url("https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+
 }
 
 .uplood-card {
