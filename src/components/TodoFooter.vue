@@ -1,6 +1,6 @@
 <template>
   <div class="todo-footer">
-    <el-button type="primary" plain @click="handleClearTodoList">清空</el-button>
+    <el-button type="primary" plain @click="handleClearTodoList" style="margin-top: 2rem">清空</el-button>
   </div>
 </template>
 <script>

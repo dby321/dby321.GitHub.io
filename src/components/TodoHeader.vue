@@ -1,6 +1,7 @@
 <template>
   <div class="todo-header">
-    <el-input v-model="todo" size="big" placeholder="请输入待办事项" @keyup.enter.native="handleAddTodo(todo)"></el-input>
+    <el-input v-model="todo" placeholder="请输入待办事项，[回车/enter]添加事项" @keyup.enter.native="handleAddTodo(todo)" style="width: 20rem;margin-right: 0.5rem"></el-input>
+    <el-button type="primary" @click="handleAddTodo(todo)">添加事项</el-button>
   </div>
 </template>
 <script>
@@ -24,5 +25,7 @@ export default {
 }
 </script>
 <style scoped>
-
+.todo-header{
+  margin-bottom: 1rem;
+}
 </style>
