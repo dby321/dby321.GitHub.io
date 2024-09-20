@@ -14,30 +14,35 @@ export default {
         {
           title: "Github",
           url: "https://github.com/",
-          icon: "https://th.bing.com/th/id/OIP.TvyUGx7vFI7P7thCaflvMwHaE8?rs=1&pid=ImgDetMain",
+          icon: require('../assets/icon/github.png'),
           desc: "Github"
         },
         {
           title: "Gitee",
           url: "https://gitee.com/",
-          icon: "https://th.bing.com/th/id/OIP.2e2Mx4ADkZMrW1XrJZ2HRAAAAA?rs=1&pid=ImgDetMain",
+          icon: require('../assets/icon/gitee.svg'),
           desc: "Gitee"
+        },
+        {
+          title: "CSDN",
+          url: "https://www.csdn.net/",
+          icon:require('../assets/icon/csdn.svg')
+        },
+        {
+          title:"掘金",
+          url: "https://juejin.cn/",
+          icon:'https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/6c61ae65d1c41ae8221a670fa32d05aa.svg'
+        },
+        {
+          title:"开源中国",
+          url: "https://www.oschina.net/",
+          icon:require('../assets/icon/oschina.svg')
         },
         {
           title: "Bilibili",
           url: "https://www.bilibili.com/",
-          icon: "https://android-artworks.25pp.com/fs08/2021/04/15/0/110_a1c6eb62a7b1139bee62358a2f0ebf02_con_130x130.png",
+          icon:require('../assets/icon/bilibili.svg')
         },
-        {
-          title: "知乎",
-          url: "https://www.zhihu.com/",
-          icon: "https://photo.16pic.com/00/56/07/16pic_5607016_b.jpg",
-        },
-        {
-          title: "网易云音乐",
-          url: "https://music.163.com/",
-          icon: "https://th.bing.com/th/id/R.491e3a8d4b6789a136e1b348bb3aaa42?rik=uKGaPoj2%2bg1FiA&riu=http%3a%2f%2fp3.music.126.net%2ftBTNafgjNnTL1KlZMt7lVA%3d%3d%2f18885211718935735.jpg&ehk=GFBIdPYSElI0a47lMBlmmM%2fn8aqC7yMDe6t00IkC%2fbU%3d&risl=&pid=ImgRaw&r=0"
-        }
       ]
     }
   },

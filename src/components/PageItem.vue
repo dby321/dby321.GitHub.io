@@ -36,4 +36,8 @@ export default {
   color: #000;
   border-radius: 10px;
 }
+//设置svg背景色
+.page-item-title svg{
+  fill: #000;
+}
 </style>
