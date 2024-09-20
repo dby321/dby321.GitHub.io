@@ -1,9 +1,18 @@
 <template>
   <div id="app" ref="app">
+    <el-button type="info" icon="el-icon-timer"  @click="calendarDialogVisible = true" style="position:fixed;left:1rem;top:1rem">日程管理</el-button>
+    <el-button type="info" icon="el-icon-check"  @click="todoListDialogVisible = true" style="position:fixed;left:1rem;top:5rem;margin-left: 0rem">TodoList</el-button>
     <PageTime></PageTime>
     <MainSearch style="margin-top: 1rem" >
     </MainSearch>
     <PageList></PageList>
+
+    <el-dialog  :visible.sync="calendarDialogVisible">
+      <FullCalendar :options='calendarOptions' />
+    </el-dialog>
+    <el-dialog :visible.sync="todoListDialogVisible">
+      <TodoList></TodoList>
+    </el-dialog>
   </div>
 </template>
 
@@ -11,20 +20,73 @@
 import MainSearch from "@/components/MainSearch";
 import PageList from "@/components/PageList";
 import PageTime from "@/components/PageTime";
-import '@toast-ui/calendar/dist/toastui-calendar.min.css';
+import FullCalendar from '@fullcalendar/vue'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from '@fullcalendar/interaction'
+import { createEventId } from './utils/js/event-utils'
+import TodoList from "@/components/TodoList.vue"
 export default {
   name: 'App',
   components: {
     MainSearch,
     PageList,
     PageTime,
+    FullCalendar,
+    TodoList
   },
-
   data() {
     return {
-
+      calendarDialogVisible:false,
+      todoListDialogVisible:false,
+      calendarOptions: {
+        plugins: [dayGridPlugin,interactionPlugin],
+        initialView: 'dayGridMonth',
+        weekends: false,
+        events: [
+        ],
+        eventClick:this.handleEventClick,
+        selectable:true,
+        select: this.handleDateSelect,
+      }
     }
   },
+  mounted(){
+    this.getEvents()
+  },
+  methods:{
+    handleDateSelect(selectInfo) {
+      console.log("selectInfo",selectInfo)
+      let title = prompt('请输入你的日程');
+      let calendarApi = selectInfo.view.calendar
+
+      calendarApi.unselect() // clear date selection
+
+      if (title) {
+        let event={
+          id: createEventId(),
+          title,
+          start: selectInfo.startStr,
+          end: selectInfo.endStr,
+          allDay: selectInfo.allDay
+        }
+        localStorage.setItem("event:"+event.id,JSON.stringify(event))
+        calendarApi.addEvent(event)
+      }
+    },
+    handleEventClick(clickInfo) {
+      if (confirm(`是否要删除日程【${clickInfo.event.title}】`)) {
+        clickInfo.event.remove()
+      }
+    },
+    getEvents(){
+      for (let localStorageKey in localStorage) {
+        if(localStorageKey.startsWith("event:")){
+          let event = JSON.parse(localStorage[localStorageKey])
+          this.calendarOptions.events.push(event)
+        }
+      }
+    }
+  }
 
 }
 </script>
