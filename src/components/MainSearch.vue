@@ -15,7 +15,7 @@
           <span>{{item.label}}</span>
         </el-option>
       </el-select>
-      <el-button  slot="append" icon="el-icon-search" type="primary"  @click="search" style="width:100px;">搜索</el-button>
+      <el-button  slot="append" icon="el-icon-search" type="primary"  @click="search" style="width:5rem;">搜索</el-button>
     </el-input>
 
 
@@ -72,10 +72,10 @@ export default {
   align-content: center;
 }
 .el-input{
-  width: 500px;
+  width: 40rem;
 }
 .el-select{
- width: 100px;
+ width: 5rem;
 }
 
 .el-select-dropdown__item{
@@ -84,8 +84,8 @@ export default {
   align-content: center;
 }
 .icon{
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
 }
 
 

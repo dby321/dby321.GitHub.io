@@ -2,6 +2,7 @@
   <div>
     <div class="page-item-title" :style="styleObj" @click="toPage">
     </div>
+    <div class="title">{{item.title}}</div>
   </div>
 </template>
 <script>
@@ -30,10 +31,17 @@ export default {
 </script>
 <style lang="less" scoped>
 .page-item-title{
-  width: 50px;
-  height: 50px;
+  width: 4rem;
+  height: 4rem;
   background: #fff;
   color: #000;
   border-radius: 10px;
 }
+.title{
+  margin-top:1rem;
+  color: white;
+
+}
+
+
 </style>
