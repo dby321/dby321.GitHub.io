@@ -78,7 +78,8 @@ export default {
           url: "https://weibo.com/",
           icon: "https://th.bing.com/th/id/R.7a26b2dd16ea1e67b79fb4040e3d3b4a?rik=LZkLDujijNeoHw&riu=http%3a%2f%2fwww.kuaipng.com%2fUploads%2fpic%2fw%2f2021%2f04-21%2f99520%2fwater_99520_698_698_.png&ehk=1boQVZBk48rN7lWp7Sxlqwid0X0cY5NBhgA2iQ4%2fwRM%3d&risl=&pid=ImgRaw&r=0",
           desc: "微博"
-        },
+        }
+      ]
     }
   },
   components: {
