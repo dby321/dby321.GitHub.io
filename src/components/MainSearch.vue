@@ -75,7 +75,7 @@ export default {
   width: 40rem;
 }
 .el-select{
- width: 5rem;
+ width: 7rem;
 }
 
 .el-select-dropdown__item{
