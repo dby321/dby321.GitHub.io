@@ -1,9 +1,9 @@
 <template>
   <div id="app" ref="app">
-    <el-button type="info" icon="el-icon-timer"  @click="calendarDialogVisible = true" style="position:fixed;left:1rem;top:1rem">日程管理</el-button>
-    <el-button type="info" icon="el-icon-check"  @click="todoListDialogVisible = true" style="position:fixed;left:1rem;top:5rem;margin-left: 0rem">TodoList</el-button>
-    <PageTime></PageTime>
-    <MainSearch style="margin-top: 1rem" >
+    <div ref="time" style="font-size: 200px;color:white;margin-top: 100px;">
+      <span>{{time}}</span>
+    </div>
+    <MainSearch style="margin-top: 20px" >
     </MainSearch>
     <PageList></PageList>
 
@@ -36,18 +36,27 @@ export default {
   },
   data() {
     return {
-      calendarDialogVisible:false,
-      todoListDialogVisible:false,
-      calendarOptions: {
-        plugins: [dayGridPlugin,interactionPlugin],
-        initialView: 'dayGridMonth',
-        weekends: false,
-        events: [
-        ],
-        eventClick:this.handleEventClick,
-        selectable:true,
-        select: this.handleDateSelect,
-      }
+      cityCode: "420100",// 城市编码，默认是武汉
+      extensions: "base",
+      outputFormat: "JSON",
+      weatherInfo: {},
+      time: "",
+    }
+  },
+  methods: {
+    getWeather() {
+      this.$axios.get(`https://restapi.amap.com/v3/weather/weatherInfo?key=aa27ed324dfe80f2d6b9505fc5d057fb&&city=${this.cityCode}&&extensions=${this.extensions}&&output=${this.outputFormat}`).then(res => {
+        console.log("weatherInfo", res);
+        this.weatherInfo = res.data.lives[0]
+      })
+    },
+    getNowTime(){
+      let time = new Date();
+      setInterval(() => {
+        time = new Date();
+        // ${time.toLocaleDateString()}
+        this.time = ` ${time.toLocaleTimeString()}`;
+      }, 1000)
     }
   },
   mounted(){

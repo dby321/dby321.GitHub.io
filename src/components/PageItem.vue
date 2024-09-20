@@ -37,11 +37,4 @@ export default {
   color: #000;
   border-radius: 10px;
 }
-.title{
-  margin-top:1rem;
-  color: white;
-
-}
-
-
 </style>

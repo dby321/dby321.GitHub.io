@@ -1,8 +1,7 @@
 <template>
   <div class="box">
-
-    <el-input placeholder="请输入搜索内容" v-model="searchText"  @keyup.enter.native="search" class="input-with-select">
-      <el-select slot="prepend" v-model="searchEngine" placeholder="搜索引擎" style="backdrop-filter: blur(0px)">
+    <el-input placeholder="请输入搜索内容" v-model="searchText"  @keyup.enter.native="search" class="input-with-select"   >
+      <el-select slot="prepend" v-model="searchEngine" placeholder="搜索引擎" >
         <el-option
             v-for="item in options"
             :key="item.value"
