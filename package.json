@@ -10,6 +10,10 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/vue": "^6.1.15",
     "axios": "^1.7.5",
     "core-js": "^3.8.3",
     "element-ui": "^2.15.14",
@@ -20,7 +24,8 @@
     "octokit": "^4.0.2",
     "vue": "^2.6.14",
     "vue-dplayer": "^0.0.10",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
