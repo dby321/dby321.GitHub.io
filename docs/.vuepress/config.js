@@ -1,6 +1,6 @@
 module.exports = {
-    title: 'Hello VuePress',
-    description: 'Just playing around',
+    title: '千里水草的个人博客',
+    description: '勇敢的人先享受世界',
     themeConfig: {
         displayAllHeaders: true ,// 默认值：false
         nav: [
