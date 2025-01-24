@@ -1,0 +1,486 @@
+<!-- H5的文档声明 -->
+<!-- 不写文档声明会让浏览器进入 怪异模式(区别于标准模式) -->
+<!--# 超文本标记语言 
+		- 超文本：富文本
+		- 标记：普通文本变成超文本用到的标记符号
+		- 语言：语法规则
+-->
+<!-- 输入！按回车会快速生成基本html结构 -->
+<!DOCTYPE html>
+<!--#
+	  - <html lang="zh-CN">
+		  - 让浏览器显示对应的翻译提示。
+			- 有利于搜索引擎优化。
+			- 第一种写法（ 语言-国家/地区 ），例如：
+				zh-CN ：中文-中国大陆（简体中文）
+				zh-TW ：中文-中国台湾（繁体中文）
+				zh ：中文
+				en-US ：英语-美国
+				en-GB ：英语-英国
+-->
+<html lang="en">
+
+<head>
+	<!--# <meta>
+		- 用来设置字符集 charset="编码"
+			- 编码如 UTF-8 GBK ...
+			- 字符集 细节参见 https://blog.csdn.net/qq_42068856/article/details/83792174
+		- 用来设置网页的关键字 name="keywords" content="关键字"
+		- 用来指定网页的描述 name="description" content="描述"
+		- 搜素引擎检索 关键字和描述，但不会影响在搜索中的排名
+		- 用来请求的重定向 http-equiv="refresh" content="几秒;url=路径"
+	 -->
+	<meta charset="UTF-8">
+	<title>尚硅谷前端HTML5视频_HTML</title>
+	<meta name="keywords" content="HTML5,Javascript,前端,java" />
+	<meta name="description" content="发布h5,js等前端相关的信息" />
+	<!--针对IE的兼容性设置 设置IE总是使用最新的文档模式进行渲染-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<!--针对360等壳浏览器的兼容性设置 优先使用 webkit ( Chromium ) 内核进行渲染 -->
+	<meta name="renderer" content="webkit">
+	<!-- <meta http-equiv="refresh" content="5;url=http://www.baidu.com"> -->
+</head>
+
+<body>
+	<div>
+		<!--# 前言知识
+			- IETF 早期互联网标准标准化组织
+			- W3C 定义网络标准的组织
+			- XML 可扩展标记语言
+			- WHATWG 成立的原因是W3C意图放弃HTML转为XHTML，由苹果、火狐、欧朋等浏览器厂商成立
+			- 元素==标签 
+		 -->
+		<!-- marquee跑马灯效果 loop="1" 只会滚动一次 -->
+		<!-- 注释不可嵌套 -->
+		<marquee loop="1">尚硅谷,让天下没有学的完的技术</marquee>
+		<h1>这是我的尚硅谷前端HTML基础</h1>
+		<hr />
+		<!--# 实体(转义字符串) 
+			- 由于<和>特殊字符不能直接使用，故需要 实体
+			- 举例如下	
+			  <     &lt;
+				>     &gt;
+				空格  &nbsp; 
+				版权符号 &copy;
+		 -->
+		a&lt;b&nbsp;&nbsp;&nbsp;版权&copy;
+		<hr />
+		<!--# <img>
+			- src="图片路径" 
+			- alt="图片描述"  
+				- 图片找不到时候显示的文字
+				- 搜索引擎 会根据alt的文字来识别不同的图片
+				- 不写alt 搜索引擎不收录
+			- width="宽度px"
+			- height="高度px"
+		 -->
+		<img src="20150727120638_nFBQ4.jpeg" alt="图片描述" width="100px">
+		<img src="11.jpeg" alt="图片描述">
+		<hr />
+		<!--# 相对路径和绝对路径
+			- 绝对路径  E:\sublime_workspace\Html_demo\20150727120638_nFBQ4.jpeg
+			- 相对路径  20150727120638_nFBQ4.jpeg
+			- ../ 返回上一级目录
+			- ./  当前路径
+		 -->
+		<!--# 图片的格式
+			- JPEG 
+				- 支持的颜色多，图片可以压缩(体积小)，不支持透明
+				- 用于保存照片
+			- GIF
+				- 支持的颜色少，只支持简单的透明，支持动态图
+				- 图片颜色单一或者动态图
+			- PNG
+				- 支持的颜色多，支持复杂的透明
+				- 带透明的图片
+			- BMP
+				- 大型游戏中图片使用，不进行压缩
+				- 支持的颜色丰富、保留的细节更多、占用空间极大、不支持透明背景、不支持动态图。
+			- WEBP
+				- 谷歌推出的格式，注意浏览器兼容性
+			- BASE64
+				1. 本质：一串特殊的文本，要通过浏览器打开，传统看图应用通常无法打开。
+				2. 原理：把图片进行 base64 编码，形成一串文本。
+				3. 如何生成：靠一些工具或网站。
+				4. 如何使用：直接作为 img 标签的 src 属性的值即可，并且不受文件位置的影响。
+				5. 使用场景：一些较小的图片，或者需要和网页一起加载的图片。 
+			# 图片使用原则
+			- 效果差不多 用小的
+		 -->
+		<!--# XHTML语法规范
+			- HTML标签 不区分大小写，但一般小写
+			- HTML注释 不能嵌套
+			- HTML标签 必须结构完整
+				- 如<p></p>
+				- 尽管浏览器尽力正确解析页面，但可能会修正错误
+				- 浏览器为了占有更多的市场份额，所以会自动修正错误
+			- HTML标签 不能交叉嵌套
+			- HTML标签属性 必须有值，且值必须加引号" "或者' '
+		 -->
+	</div>
+	<div>
+		<!--# <iframe>
+			- 使用内联框架可以引入外部的页面
+			- 属性
+				- src 指向外部页面的路径，可以使用相对路径
+				- width
+				- height
+				- name 给内联框架一个名字
+			- 现实开发中不推荐使用内联框架，因为内容不会被搜索引擎检索到
+		 -->
+		<iframe src="demo02.html" name="tom"></iframe>
+		<hr>
+		<!--# <a>
+			- 属性
+				- href 跳转到目标地址，可以写一个相对路径也可以写一个完整路径
+						- "#" 除了占位，还可以回到当前页面的顶部
+						- mailto:邮箱地址(用的很少，现在用二维码)	
+						-  
+				- target 规定在何处打开链接文档
+					- _blank 新窗口打开
+					- _self 在当窗口中打开(默认)
+					- 可以设置一个内联框架的name属性值
+		 -->
+		<a href="http://www.baidu.com" target="_blank">完整路径&nbsp;百度</a>
+		<a href="demo03.html" target="tom">相对路径&nbsp;demo03.html</a>
+		<!--# <center>
+			- 标签中的内容会在页面居中显示
+			- 不推荐使用
+		 -->
+		<center>
+			<p>我是一个p标签</p>
+		</center>
+		<!-- ######### 锚点 start ########## -->
+		<!-- 第一种方式：a标签配合name属性 -->
+		<a name="test1"></a>
+		<!-- 第二种方式：其他标签配合id属性 -->
+		<h2 id="test2">我是一个位置</h2>
+
+		<!-- 跳转到test1锚点-->
+		<a href="#test1">去test1锚点</a>
+		<!-- 跳到本页面顶部 -->
+		<a href="#">回到顶部</a>
+		<!-- 跳转到其他页面锚点 -->
+		<a href="demo.html#test1">去demo.html页面的test1锚点</a>
+		<!-- 刷新本页面 -->
+		<a href="">刷新本页面</a>
+		<!-- 执行一段js,如果还不知道执行什么，可以留空，javascript:; -->
+		<a href="javascript:alert(1);">点我弹窗</a>
+		<!-- ######### 锚点 end ########## -->
+		<!-- 唤起设备拨号 -->
+		<a href="tel:10010">电话联系</a>
+		<!-- 唤起设备发送邮件 -->
+		<a href="mailto:10010@qq.com">邮件联系</a>
+		<!-- 唤起设备发送短信 -->
+		<a href="sms:10086">短信联系</a>
+	</div>
+	<hr>
+
+	<div>
+		<!--# 块元素和内联元素
+			- 块元素 
+				- 独占一整行，无论他的内容有多少
+				- <h1> <h2>...
+					- h1~h6 不能互相嵌套。
+				- <p>
+					- p 中不要写块级元素。
+				- <br> <hr>
+				- <div>
+			- 内联元素(行内元素)
+				- 只占用自身大小的元素，不会占用一行
+				- <a> 
+				- <img> 
+				- <iframe> 
+				- <span>
+		 -->
+		<!--# <div>和<span>
+			- <div>
+				- 块元素
+				- 无任何语义，主要用来页面布局
+			- <span>	
+				- 内联元素
+				- 专门用来选中文字，来为文字设置样式
+			- 注意事项
+				- 一般用 块元素(如<div>) 包裹 内联元素(如<span>)
+				- <a>元素 可以包含 块元素 和 内联元素，除了他本身
+				- <p>元素 不可以包含 块元素
+		 -->
+		<!--# <em>和<i> <strong>和<b> <small>和<big> <cite> <q> <blockquote> <sub>和<sup> <ins>和<delete> <pre> <code>
+			- <em>     表示语气上的强调 斜体显示
+			- <i> 斜体显示
+			- <strong> 表示内容上的强调 加粗显示
+			- <b> 加粗显示 
+			- <small>  表示细则一类的内容 元素中的内容会比他的父元素中的内容要小
+			- <big> 
+			- <cite> 表示引用的内容 斜体显示 
+			- <q> 短引用 浏览器会在两边加引号
+			- <blockquote> 长引用(块引用)
+			- <sub> 下标
+			- <sup> 上标
+			- <del> 表示删除的内容 删除线
+			- <ins> 表示插入的内容 下划线 
+			- <pre> 预格式标签  会将代码中的格式保留，不会忽略多个空格
+			- <code> 表示代码 只是语义 
+		 -->
+		<!--# 有序列表<ul>和无序列表<ol>
+			- <ul>属性type 
+				- 可以指定序号的类型
+				- circle disc(默认 实心圆) space
+				- 不赞成使用
+			- <ol>属性type
+				- 可以指定序号的类型
+				- 1(默认) a/A  I
+			- <ul>和<li>都是块元素
+			- 列表之间是可以互相嵌套的
+		 -->
+		<ul type="circle">
+			<li>123</li>
+			<li>456</li>
+			<li>789</li>
+		</ul>
+		<!--# <dl>定义列表
+			- 用来对一些词汇和内容进行定义
+			- 子标签<dt> <dd>
+		 -->
+		<dl>
+			<dt>武松</dt>
+			<dd>打虎英雄，强无敌</dd>
+			<dd>打死西门庆，强无敌</dd>
+			<dt>武大</dt>
+			<dd>武汉大学不拉不拉</dd>
+		</dl>
+		<!--# 表格
+			- 表格标题caption 表头thead，表格的主体tbody，表格底部tfoot
+			- table
+				- width ：设置表格宽度。
+				- height ：设置表格最小高度，表格最终高度可能比设置的值大。
+				- border ：设置表格边框宽度。
+				- cellspacing ： 设置单元格之间的间距。
+			- thead,tbody,tr,tfoot
+				- align ： 设置单元格的水平对齐方式，可选值如下：
+					1. left ：左对齐
+					2. center ：中间对齐
+					3. right ：右对齐
+				- valign ：设置单元格的垂直对齐方式，可选值如下：
+					1. top ：顶部对齐
+					2. middle ：中间对齐
+					3. bottom ：底部对齐
+			- td,th
+				- rowspan ：指定要跨的行数。
+				- colspan ：指定要跨的列数。
+				- align ： 设置单元格的水平对齐方式，可选值如下：
+					1. left ：左对齐
+					2. center ：中间对齐
+					3. right ：右对齐
+				- valign ：设置单元格的垂直对齐方式，可选值如下：
+					1. top ：顶部对齐
+					2. middle ：中间对齐
+					3. bottom ：底部对齐
+		-->
+		<table border="1">
+			<tr>
+				<th>A1</th>
+				<th>A2</th>
+				<th rowspan="2">A3</th>
+				<th>A4</th>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>123</td>
+
+				<td>123</td>
+			</tr>
+			<tr>
+				<td>123</td>
+				<td>123</td>
+				<td colspan="2">123</td>
+
+			</tr>
+		</table>
+
+		<table class="table table-hover">
+			<caption>我是标题</caption>
+			<thead>
+				<tr>
+					<th>我是表头1</th>
+					<th>我是表头2</th>
+					<th>我是表头3</th>
+					<th>我是表头4</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>我是主体1</td>
+					<td>我是主体2</td>
+					<td>我是主体3</td>
+					<td>我是主体4</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+
+				</tr>
+			</tfoot>
+		</table>
+		<!--# 表单<form> 
+			- action:该属性指向的是一个服务器的地址
+			- target ：用于控制表单提交后，如何打开页面，常用值如下：
+				- _self ：在本窗口打开。
+				- _blank ：在新窗口打开。
+			- method ：用于控制表单的提交方式
+		 -->
+		<form action="target.html">
+			<!-- fieldset用于 表单分组 类似于optgroup用于 下拉列表分组  -->
+			<fieldset>
+				<!-- legend用于指定 表单分组 的组名 -->
+				<legend>用户信息</legend>
+				<!-- label的for 对应 input的id -->
+				<label for="um">用户名</label>
+				<!-- <input type="text">
+					- name 属性：数据的名称。
+					- value 属性：输入框的默认输入值。
+					- maxlength 属性：输入框最大可输入长度。
+					- placeholder 提示文字
+					- required 必填
+					- autofocus 自动获取焦点
+					- autocomplete 自动完成 on/off
+					- pattern 填写的正则表达式 
+				-->
+				<input id="um" type="text" name="username" value="请输入用户名"><br><br>
+				<label for="mm">密码</label>
+				<input id="mm" type="password" name="password"><br><br>
+				性别
+				<input id="male" type="radio" name="gender" value="male" checked="checked"><label for="male">男</label>
+				<input id="female" type="radio" name="gender" value="female"><label for="female">女</label><br><br>
+				<!-- 隐藏域 -->
+				<input type="hidden" name="tag" value="100">
+			</fieldset>
+			<fieldset>
+				<legend>用户爱好</legend>
+				爱好
+				<input type="checkbox" name="hobby" value="zq">足球
+				<input type="checkbox" name="hobby" value="lq">篮球
+				<input type="checkbox" name="hobby" value="aaa">啊啊啊
+				<!--  checked="checked" 多选框默认选中 -->
+				<input type="checkbox" name="hobby" value="np" checked="checked">女票<br><br>
+				你喜欢的明星
+				<!-- multiple="multiple" 设置下拉列表能否多选 -->
+				<select name="ny" multiple="multiple">
+					<!-- <optgroup> 设置选项分组 -->
+					<optgroup label="我女票">
+						<option value="lmx" selected="selected">李铭霞小可爱</option>
+					</optgroup>
+					<optgroup label="其他">
+						<option value="dqwj">大桥未久</option>
+						<option value="tghlx">桃谷绘里香</option>
+						<!--  selected="selected" 下拉菜单默认选中 -->
+						<option value="syrs">上原瑞穗</option>
+						<option value="fly">□立○</option>
+					</optgroup>
+				</select><br><br>
+				<label for="zwjs">自我介绍</label>
+				<textarea name="info" id="zwjs" cols="30" rows="10"></textarea> <br><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>提交信息</legend>
+				<input type="submit" value="提交按钮">
+				<input type="reset" value="重置按钮">
+				<input type="button" value="按钮">
+				<br><br>
+				<!-- 推荐使用这个，更加灵活 -->
+				<button type="submit"><img src="20150727120638_nFBQ4.jpeg" alt="" style="width: 10px"></button>
+				<button type="reset">重置按钮</button>
+				<button type="button">按钮</button>
+			</fieldset>
+
+		</form>
+		<hr><br>
+		<!--# frameset框架集(了解)
+			- 用来创建一个框架集 用于在一个页面引入其他外部的页面
+			- frameset和body水火不容！!
+			- frameset和iframe一样，它里面的内容都不会被搜索引擎所检索
+			- 使用框架集则意味着页面中不能有自己的内容，只能引入其他的页面
+			- 引入几个页面就要向浏览器发送几次请求，用户体验很差
+			- 如果非得用，建议用frameset，不要用iframe
+			- 细节参见 http://www.w3school.com.cn/tags/tag_frameset.asp
+		 -->
+		<!--# 恶心的IE6中对图片格式png24支持度不高 会导致透明效果无法正常显示
+			- 用ps存储图片为png8就好，不过图片的清晰度会有所下降
+			- 用javascript来解决该问题，需要向页面引入一个外部的js文件DD_belatedPNG_0.0.8a-min.js 
+			- 细节参见 https://www.bilibili.com/video/av21557880/?p=89
+		-->
+	</div>
+	<!--######## html5 start #######-->
+	<div>
+		<!--
+		# 新增布局标签
+			- header 整个页面，或部分区域的头部 双
+			- footer 整个页面，或部分区域的底部 双
+			- nav 导航 双
+			- article 文章、帖子、杂志、新闻、博客、评论等。 双
+				- section 页面中的某段文字，或文章中的某段文字（里面文字通常里面会包含标题）。 双
+			- aside 侧边栏 双
+			- main 文档的主要内容 ( WHATWG 没有语义， IE 不支持)，几乎不用。 双
+			- hgroup 包裹连续的标题，如文章主标题、副标题的组合 （ W3C 将其删除）双
+		# 新增状态标签 
+			- <meter> 用于显示电量、磁盘用量
+				- high 数值 规定高值
+				- low 数值 规定低值
+				- max 数值 规定最大值
+				- min 数值 规定最小值
+				- optimum 数值 规定最优值
+				- value 数值 规定当前值
+			- <progress> 用于显示进度条
+				- max 数值 规定目标值。
+				- value 数值 规定当前值。
+			# 新增列表标签
+				- <datalist> 用于搜索框的关键字提示 双
+				- <details> 用于展示问题和答案，或对专有名词进行解释 双
+				- <summary> 写在 details 的里面，用于指定问题或专有名词 双
+			# 新增文本注音
+				- <ruby> 包裹需要注音的文字 双
+				- <rt> 写注音， rt 标签写在 ruby 的里面	
+				- <mark> 标记
+			# 新增多媒体标签
+				- <video>
+				- <audio>
+			# 新增全局属性
+			- contenteditable
+				- 表示元素是否可被用户编辑，可选值如下：
+				- true ：可编辑
+				- false ：不可编辑
+			- draggable
+				- 表示元素可以被拖动，可选值如下：
+				- true ：可拖动
+				- false ：不可拖动
+			- hidden 隐藏元素
+			- spellcheck
+				– 规定是否对元素进行拼写和语法检查，可选值如下：
+				- true ：检查
+				- false ：不检查
+			- contextmenu 规定元素的上下文菜单，在用户鼠标右键点击元素时显示。
+			- data-* 用于存储页面的私有定制数据。
+		-->
+		<input type="text" list="mydata">
+		<datalist id="mydata">
+			<option value="周冬雨">周冬雨</option>
+			<option value="周杰伦">周杰伦</option>
+			<option value="温兆伦">温兆伦</option>
+			<option value="马冬梅">马冬梅</option>
+		</datalist>
+		<details>
+			<summary>如何走上人生巅峰？</summary>
+			<p>一步一步走呗</p>
+		</details>
+		<ruby>
+			<span>魑魅魍魉</span>
+			<rt>chī mèi wǎng liǎng </rt>
+		</ruby>
+	</div>
+	<!--######## html5 end #######-->
+</body>
+<script type="text/javascript" src="">
+</script>
+
+</html>
