@@ -13,20 +13,25 @@
 <body>
   <div id="app"></div>
   <script>
+
       window.$docsify = {
-          search: [
-              '/',            // => /README.md
-          ],
+          search: {
+                maxAge: 86400000, // 索引缓存的最大年龄（毫秒）
+                paths: 'auto', // 自动索引所有路径
+                placeholder: '=>请搜索...😊', // 搜索框占位符文本
+                noData: '你在搜什么鸟玩意,这里没有/(ㄒoㄒ)/~~', // 当没有匹配结果时显示的文本
+                depth: 3 // 搜索深度
+          },
           name: '千里水草的个人博客', // 文档标题，会显示在侧边栏顶部
           repo: 'https://github.com/dby321', // 右上角Github图标链接
           loadNavbar: true, // 默认加载 _sidebar.md，作为顶部导航栏
           loadSidebar: true, // 默认加载 _sidebar.md，作为侧边栏
           coverpage: true,  // 默认加载 _coverpage.md，作为封面
-          ga: 'UA-XXXXX-Y'
       }
+
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
 </body>
 </html>
