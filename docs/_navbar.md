@@ -1,6 +1,6 @@
 - **学习导航**
   - [**哔哩哔哩**](https://www.bilibili.com/)
-  - [**GitHub中文社区**](https://www.githubs.cn/post/what-is-github)
+  - [**GitHub中文社区**](https://github.com/)
   - [**LeetCode**](https://leetcode.cn/) - 算法刷题
   - [**Coursera**](https://www.coursera.org/) - 在线课程
   - [**Udemy**](https://www.udemy.com/) - 编程课程
@@ -59,4 +59,3 @@
   - [**GitHub**](https://github.com/dby321) - 查看项目
   - [**QQ**](tencent://message/?uin=1017834057) - QQ联系
 
-  
