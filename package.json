@@ -24,6 +24,7 @@
     "moment": "^2.30.1",
     "normalize.css": "^8.0.1",
     "octokit": "^4.0.2",
+    "staticrypt": "^3.5.1",
     "vue": "^2.6.14",
     "vue-dplayer": "^0.0.10",
     "vue-markdown": "^2.2.4",
@@ -40,6 +41,7 @@
     "eslint-plugin-vue": "^8.0.3",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
+    "vue-wxlogin": "^1.0.5",
     "vuepress": "^1.9.10",
     "vuepress-theme-reco": "^1.6.17"
   },

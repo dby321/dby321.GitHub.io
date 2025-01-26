@@ -2,6 +2,7 @@
   <div id="app" ref="app">
     <el-button type="info" icon="el-icon-timer"  @click="calendarDialogVisible = true" style="position:fixed;left:1rem;top:1rem">日程管理</el-button>
     <el-button type="info" icon="el-icon-check"  @click="todoListDialogVisible = true" style="position:fixed;left:1rem;top:5rem;margin-left: 0rem">TodoList</el-button>
+    <Wxlogin ></Wxlogin>
     <PageTime/>
     <MainSearch style="margin-top: 20px" >
     </MainSearch>
