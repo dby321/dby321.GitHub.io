@@ -37,4 +37,9 @@ export default {
   color: #000;
   border-radius: 10px;
 }
+.title{
+  margin-top:10px;
+  color:white;
+  font-weight: bold;
+}
 </style>

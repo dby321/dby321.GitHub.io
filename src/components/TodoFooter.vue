@@ -20,6 +20,5 @@ export default {
 }
 </script>
 <style scoped>
-.todo-footer{
-}
+
 </style>
