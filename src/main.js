@@ -4,7 +4,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import "@/assets/iconfont/iconfont"
 import "@/assets/iconfont/iconfont.css"
-import WxLogin from 'vue-wxlogin';
 // 改用normalize
 // import "@/utils/css/reset.css"
 import 'normalize.css'
@@ -14,7 +13,6 @@ import store from './store/store'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
-Vue.component('WxLogin', WxLogin);
 // 将axios实例绑定到Vue原型上
 Vue.prototype.$axios = axios;
 new Vue({
